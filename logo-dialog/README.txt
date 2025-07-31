@@ -1,1 +1,1 @@
-# Image placeholder - Remplacer par logo.png
+# Images à ajouter sur OVH

@@ -1,1 +1,1 @@
-# Photos placeholder - Ajouter les photos des fondateurs ici
+# Photos à ajouter sur OVH

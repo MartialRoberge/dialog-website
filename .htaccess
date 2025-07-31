@@ -28,4 +28,4 @@ RewriteRule . /index.html [L]
     Deny from all
 </Files>
 
-ErrorDocument 404 /index.html 
+ErrorDocument 404 /index.html
