@@ -1,40 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { Brain, Users, TrendingUp, Award } from 'lucide-react'
 
-const Counter = ({ end, duration = 2, suffix = "" }) => {
-  const [count, setCount] = useState(0)
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-
-  useEffect(() => {
-    if (isInView) {
-      let startTime = null
-      const animate = (currentTime) => {
-        if (startTime === null) startTime = currentTime
-        const progress = Math.min((currentTime - startTime) / (duration * 1000), 1)
-        setCount(Math.floor(progress * end))
-        
-        if (progress < 1) {
-          requestAnimationFrame(animate)
-        }
-      }
-      requestAnimationFrame(animate)
-    }
-  }, [isInView, end, duration])
-
-  return <span ref={ref}>{count}{suffix}</span>
+const Counter = ({ end, suffix = "" }) => {
+  return <span>{end}{suffix}</span>
 }
 
 const About = () => {
 
 
   const stats = [
-    { icon: Brain, number: 100, suffix: "%", label: "Taux de satisfaction client", color: "deep-teal" },
-    { icon: Users, number: 200, suffix: "+", label: "Colaborateurs formés", color: "mint-teal" },
-    { icon: TrendingUp, number: 30, suffix: "%", label: "Gain de productivité moyen", color: "soft-coral" },
-    { icon: Award, number: 20, suffix: "+", label: "Solutions IA déployées", color: "peach-glow" }
+    { icon: TrendingUp, number: 33, suffix: "%", label: "Gain de productivité IA*", color: "deep-teal" },
+    { icon: Brain, number: 3.7, suffix: "x", label: "ROI moyen par € investi*", color: "mint-teal" },
+    { icon: Users, number: 79, suffix: "%", label: "Dirigeants jugent l'IA critique*", color: "soft-coral" },
+    { icon: Award, number: 33, suffix: "%", label: "Entreprises 250+ adoptent l'IA*", color: "peach-glow" }
   ]
 
   return (
@@ -42,41 +21,17 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <motion.div
-          className="text-center mb-12 sm:mb-16 lg:mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <motion.h2
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-deep-teal mb-4 sm:mb-6 font-space px-4 sm:px-0"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-deep-teal mb-4 sm:mb-6 font-space px-4 sm:px-0">
             L'expertise au service de votre transformation
-          </motion.h2>
-          <motion.p
-            className="text-base sm:text-lg lg:text-xl text-charcoal/80 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Une équipe d'experts passionnés qui transforment les défis d'IA en opportunités concrètes
-          </motion.p>
-        </motion.div>
+          </h2>
+          <p className="text-base sm:text-lg lg:text-xl text-charcoal/80 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
+            L'IA n'a de valeur que quand elle s'utilise. Notre mission : transformer vos idées IA en usages concrets, grâce à une orchestration claire, sur-mesure et sans jargon.
+          </p>
+        </div>
 
         {/* Mission Statement */}
-        <motion.div
-          className="mb-16 sm:mb-20 lg:mb-24"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
+        <div className="mb-16 sm:mb-20 lg:mb-24">
           <div className="bg-gradient-to-r from-deep-teal to-mint-teal rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 text-white relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
@@ -85,63 +40,45 @@ const About = () => {
             </div>
             
             <div className="relative z-10 text-center">
-              <motion.h3
-                className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6 font-space"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                viewport={{ once: true }}
-              >
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6 font-space">
                 Notre Mission
-              </motion.h3>
-              <motion.p
-                className="text-base sm:text-lg lg:text-xl leading-relaxed max-w-4xl mx-auto"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                viewport={{ once: true }}
-              >
+              </h3>
+              <p className="text-base sm:text-lg lg:text-xl leading-relaxed max-w-4xl mx-auto">
                 Rendre l'intelligence artificielle accessible et bénéfique pour toutes les organisations, 
                 en les accompagnant dans leur transformation avec des solutions sur-mesure et responsables.
-              </motion.p>
+              </p>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Stats */}
-        <motion.div
-          className="mb-16 sm:mb-20 lg:mb-24"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
+        <div className="mb-16 sm:mb-20 lg:mb-24">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {stats.map((stat, index) => (
-              <motion.div
+              <div
                 key={index}
                 className="text-center p-4 sm:p-6 lg:p-8 bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -4, scale: 1.02 }}
               >
                 <div className={`w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-${stat.color}/10 flex items-center justify-center border-2 border-${stat.color}/20`}>
                   <stat.icon className={`h-6 w-6 sm:h-8 sm:w-8 text-${stat.color}`} />
                 </div>
                 <div className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-${stat.color} mb-1 sm:mb-2 font-space`}>
-                  <Counter end={stat.number} suffix={stat.suffix} duration={2} />
+                  <Counter end={stat.number} suffix={stat.suffix} />
                 </div>
                 <p className="text-xs sm:text-sm lg:text-base text-charcoal/80 font-medium leading-tight">
                   {stat.label}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-
+        {/* Sources */}
+        <div className="text-center mt-6">
+          <p className="text-xs text-charcoal/60">
+            * Sources : Microsoft 2024-2025, Orange Pro 2024, SkimAI 2024, Squid Impact 2024
+          </p>
+        </div>
 
       </div>
     </section>

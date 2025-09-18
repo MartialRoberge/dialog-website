@@ -16,10 +16,10 @@ const NavBar = () => {
 
   const navItems = [
     { name: 'Accueil', href: '#hero' },
-    { name: 'À propos', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Méthodologie', href: '#methodology' },
-    { name: 'Diagnostic', href: '#diag' }
+    { name: 'Notre mission', href: '#about' },
+    { name: 'Nos expertises', href: '#services' },
+    { name: 'Notre approche', href: '#methodology' },
+    { name: 'Notre différence', href: '#difference' }
   ]
 
   const scrollToSection = (href) => {
@@ -32,15 +32,12 @@ const NavBar = () => {
 
   return (
     <>
-      <motion.nav
+      <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
             ? 'bg-white/95 backdrop-blur-md shadow-lg py-2 sm:py-3' 
             : 'bg-transparent py-4 sm:py-6'
         }`}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -49,27 +46,33 @@ const NavBar = () => {
             <motion.div
               className="flex items-center cursor-pointer"
               onClick={() => scrollToSection('#hero')}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
             >
-              <img 
-                src="/logo-dialog/logo.png" 
-                alt="Dialog" 
-                className={`h-8 sm:h-10 lg:h-12 w-auto transition-all duration-300 ${
-                  isScrolled ? 'brightness-100' : 'brightness-0 invert'
-                }`}
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'block';
-                }}
-              />
-              <div 
-                className={`font-space font-bold text-xl sm:text-2xl lg:text-3xl hidden ${
-                  isScrolled ? 'text-deep-teal' : 'text-white'
-                } transition-colors duration-300`}
-                style={{ display: 'none' }}
-              >
-                Dialog
+              <div className="flex items-center space-x-3">
+                {!isScrolled ? (
+                  // Logo complet quand pas scrollé (blanc sur fond sombre)
+                  <img 
+                    src="/logo-dialog.png" 
+                    alt="Dialog" 
+                    className="h-8 sm:h-10 lg:h-12 w-auto brightness-0 invert"
+                  />
+                ) : (
+                  // Logo complet quand scrollé (couleurs originales sur fond blanc)
+                  <img 
+                    src="/logo-dialog.png" 
+                    alt="Dialog" 
+                    className="h-8 sm:h-10 lg:h-12 w-auto"
+                  />
+                )}
+                <span 
+                  className={`font-bold text-xl sm:text-2xl lg:text-3xl transition-colors duration-300 ${
+                    isScrolled ? 'text-deep-teal' : 'text-white'
+                  }`}
+                >
+                  Dialog
+                </span>
               </div>
             </motion.div>
 
@@ -84,11 +87,6 @@ const NavBar = () => {
                       ? 'text-charcoal hover:text-deep-teal hover:bg-deep-teal/5'
                       : 'text-white/90 hover:text-white hover:bg-white/10'
                   }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 * index }}
                 >
                   {item.name}
                 </motion.button>
@@ -102,13 +100,8 @@ const NavBar = () => {
                     ? 'bg-deep-teal text-white hover:bg-mint-teal shadow-md hover:shadow-lg'
                     : 'bg-white text-deep-teal hover:bg-snow-grey shadow-md hover:shadow-lg'
                 }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
               >
-                Contacter-nous
+                Contactez-nous
               </motion.button>
             </div>
 
@@ -120,8 +113,9 @@ const NavBar = () => {
                   ? 'text-charcoal hover:bg-deep-teal/5' 
                   : 'text-white hover:bg-white/10'
               }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
             >
               {isMobileMenuOpen ? (
                 <X className="h-6 w-6 sm:h-7 sm:w-7" />
@@ -131,7 +125,7 @@ const NavBar = () => {
             </motion.button>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
@@ -141,7 +135,7 @@ const NavBar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
           >
             {/* Backdrop */}
             <div 
@@ -152,10 +146,10 @@ const NavBar = () => {
             {/* Menu Panel */}
             <motion.div
               className="absolute top-16 sm:top-20 left-4 right-4 bg-white rounded-2xl shadow-2xl overflow-hidden"
-              initial={{ opacity: 0, y: -20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              transition={{ duration: 0.2 }}
             >
               <div className="p-4 sm:p-6">
                 {navItems.map((item, index) => (
@@ -163,10 +157,6 @@ const NavBar = () => {
                     key={item.name}
                     onClick={() => scrollToSection(item.href)}
                     className="w-full text-left px-4 py-3 sm:py-4 text-charcoal hover:text-deep-teal hover:bg-deep-teal/5 rounded-lg font-semibold text-base sm:text-lg transition-all duration-200"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: 0.1 * index }}
-                    whileHover={{ x: 4 }}
                   >
                     {item.name}
                   </motion.button>
@@ -176,13 +166,8 @@ const NavBar = () => {
                 <motion.button
                   onClick={() => scrollToSection('#cta')}
                   className="w-full mt-4 sm:mt-6 bg-deep-teal text-white px-6 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-mint-teal transition-all duration-200 shadow-md"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.6 }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
                 >
-                  Contacter-nous
+                  Contactez-nous
                 </motion.button>
               </div>
             </motion.div>

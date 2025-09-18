@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre Diagnostic IA Expert - Dialog</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f1f5f9; font-family: 'Segoe UI', Arial, sans-serif;">
+    <div style="max-width: 650px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
+        
+        <!-- Header Premium -->
+        <div style="background: linear-gradient(135deg, #0D9488 0%, #14B8A6 50%, #22D3EE 100%); color: white; padding: 40px 30px; text-align: center; position: relative; overflow: hidden;">
+            <!-- Motifs décoratifs -->
+            <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%; opacity: 0.6;"></div>
+            <div style="position: absolute; bottom: -30px; left: -30px; width: 120px; height: 120px; background: rgba(255,255,255,0.1); border-radius: 50%; opacity: 0.4;"></div>
+            
+            <div style="position: relative; z-index: 2;">
+                <div style="background: rgba(255,255,255,0.2); border-radius: 50%; width: 80px; height: 80px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+                    <span style="font-size: 40px;">🏆</span>
+                </div>
+                <h1 style="margin: 0 0 10px 0; font-size: 28px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Votre Diagnostic IA Expert</h1>
+                <p style="margin: 0; font-size: 16px; opacity: 0.95;">Analyse personnalisée pour {{prospect_name}}</p>
+                <div style="margin-top: 20px; background: rgba(255,255,255,0.15); border-radius: 12px; padding: 15px; backdrop-filter: blur(10px);">
+                    <p style="margin: 0; font-size: 18px; font-weight: 600;">Niveau de Maturité IA : {{maturity_level}}</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scores de Maturité -->
+        <div style="padding: 30px;">
+            <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border-radius: 12px; padding: 25px; margin-bottom: 30px; border: 1px solid #0ea5e9;">
+                <h2 style="color: #0369a1; margin: 0 0 20px 0; font-size: 20px; display: flex; align-items: center;">
+                    <span style="margin-right: 10px;">📊</span> Votre Profil de Maturité IA
+                </h2>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="text-align: center; padding: 10px; vertical-align: top;">
+                            <div style="background: #0ea5e9; color: white; border-radius: 50%; width: 60px; height: 60px; margin: 0 auto 10px; line-height: 60px; text-align: center; font-weight: 700; font-size: 16px;">{{score_personnel}}</div>
+                            <p style="margin: 0; font-size: 14px; color: #0369a1; font-weight: 600;">Personnel</p>
+                        </td>
+                        <td style="text-align: center; padding: 10px; vertical-align: top;">
+                            <div style="background: #14b8a6; color: white; border-radius: 50%; width: 60px; height: 60px; margin: 0 auto 10px; line-height: 60px; text-align: center; font-weight: 700; font-size: 16px;">{{score_organisationnel}}</div>
+                            <p style="margin: 0; font-size: 14px; color: #0d9488; font-weight: 600;">Organisationnel</p>
+                        </td>
+                        <td style="text-align: center; padding: 10px; vertical-align: top;">
+                            <div style="background: #8b5cf6; color: white; border-radius: 50%; width: 60px; height: 60px; margin: 0 auto 10px; line-height: 60px; text-align: center; font-weight: 700; font-size: 16px;">{{score_strategique}}</div>
+                            <p style="margin: 0; font-size: 14px; color: #7c3aed; font-weight: 600;">Stratégique</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- Contexte Sectoriel -->
+            <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 12px; padding: 25px; margin-bottom: 30px; border-left: 5px solid #f59e0b;">
+                <h3 style="color: #92400e; margin: 0 0 15px 0; font-size: 18px; display: flex; align-items: center;">
+                    <span style="margin-right: 10px;">🏭</span> Contexte Sectoriel
+                </h3>
+                <p style="margin: 0; color: #451a03; font-size: 16px; line-height: 1.6; font-weight: 500;">{{apercu_contextuel}}</p>
+            </div>
+
+            <!-- Observation Principale -->
+            <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); border-radius: 12px; padding: 25px; margin-bottom: 30px; border-left: 5px solid #3b82f6;">
+                <h3 style="color: #1d4ed8; margin: 0 0 15px 0; font-size: 18px; display: flex; align-items: center;">
+                    <span style="margin-right: 10px;">📋</span> Votre Profil IA
+                </h3>
+                <p style="margin: 0; color: #1e3a8a; font-size: 16px; line-height: 1.6; font-weight: 500;">{{message_cle}}</p>
+            </div>
+            
+            <!-- Zones d'Attention -->
+            <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-radius: 12px; padding: 25px; margin-bottom: 30px; border: 1px solid #22c55e;">
+                <h3 style="color: #166534; margin: 0 0 20px 0; font-size: 18px; display: flex; align-items: center;">
+                    <span style="margin-right: 10px;">🔍</span> Zones d'Attention Identifiées
+                </h3>
+                <div style="color: #15803d; line-height: 1.7; font-size: 15px; white-space: pre-line;">
+                    {{zones_attention}}
+                </div>
+            </div>
+            
+            <!-- Accompagnement Dialog -->
+            <div style="background: linear-gradient(135deg, #0D9488, #14B8A6); border-radius: 12px; padding: 25px; margin-bottom: 30px; color: white;">
+                <h3 style="margin: 0 0 20px 0; font-size: 18px; display: flex; align-items: center;">
+                    <span style="margin-right: 10px;">🤝</span> Accompagnement Dialog
+                </h3>
+                <div style="line-height: 1.7; font-size: 15px; opacity: 0.95; white-space: pre-line;">
+                    {{accompagnement_dialog}}
+                </div>
+            </div>
+
+            <!-- Réflexions Sectorielles -->
+            <div style="background: linear-gradient(135deg, #f5f3ff, #ede9fe); border-radius: 12px; padding: 25px; margin-bottom: 30px; border: 1px solid #8b5cf6;">
+                <h3 style="color: #6b21a8; margin: 0 0 20px 0; font-size: 18px; display: flex; align-items: center;">
+                    <span style="margin-right: 10px;">💭</span> Réflexions Sectorielles
+                </h3>
+                <div style="color: #581c87; line-height: 1.7; font-size: 15px;">
+                    {{reflexions_sectorielles}}
+                </div>
+            </div>
+            
+            <!-- CTA Principal -->
+            <div style="text-align: center; margin: 40px 0 30px 0; padding: 30px; background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 12px; border: 2px dashed #0D9488;">
+                <h3 style="color: #0D9488; margin: 0 0 15px 0; font-size: 20px;">Prêt à Accélérer Votre Transformation IA ?</h3>
+                <p style="color: #64748b; margin: 0 0 25px 0; font-size: 16px;">Échangeons sur vos priorités et construisons ensemble votre stratégie IA sur mesure.</p>
+                <a href="mailto:martial@lexiapro.fr?subject=Suite de mon diagnostic IA Dialog&body=Bonjour Martial,%0A%0AJ'ai complété le diagnostic IA Dialog et j'aimerais échanger avec vous sur mes résultats.%0A%0AMes priorités principales :%0A- [À compléter]%0A%0AQuand pourrions-nous planifier un échange ?%0A%0ACordialement,%0A{{prospect_name}}" 
+                   style="background: linear-gradient(135deg, #0D9488, #14B8A6); color: white; text-decoration: none; padding: 18px 40px; border-radius: 50px; font-weight: 700; font-size: 16px; display: inline-block; box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3); transition: all 0.3s ease;">
+                    📅 Planifier un Échange Stratégique
+                </a>
+            </div>
+        </div>
+        
+        <!-- Footer Premium -->
+        <div style="background: linear-gradient(135deg, #1e293b, #334155); color: white; padding: 25px 30px; text-align: center;">
+            <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 15px;">
+                <h4 style="margin: 0 0 5px 0; font-size: 18px; color: #14B8A6;">Dialog</h4>
+                <p style="margin: 0; opacity: 0.8; font-size: 14px;">Cabinet de Conseil en Transformation IA</p>
+            </div>
+            <p style="margin: 0; opacity: 0.7; font-size: 13px;">
+                Diagnostic généré le {{timestamp}}<br>
+                🔒 Confidentiel - Réservé à {{prospect_name}}
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+

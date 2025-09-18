@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>avec l'IA qu
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouveau Diagnostic IA - {{from_name}}</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f8f9fa; font-family: 'Segoe UI', Arial, sans-serif;">
+    <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        
+        <!-- Header -->
+        <div style="background: linear-gradient(135deg, #0D9488, #14B8A6); color: white; padding: 30px; text-align: center;">
+            <h1 style="margin: 0; font-size: 24px; font-weight: 700;">🚀 Nouveau Diagnostic IA</h1>
+            <p style="margin: 10px 0 0 0; opacity: 0.9;">Prospect qualifié via Dialog</p>
+        </div>
+        
+        <!-- Content -->
+        <div style="padding: 30px;">
+            
+            <!-- Prospect Info -->
+            <div style="background-color: #f1f5f9; border-radius: 8px; padding: 20px; margin-bottom: 25px;">
+                <h2 style="color: #0D9488; margin: 0 0 15px 0; font-size: 18px;">👤 Informations Prospect</h2>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="padding: 8px 0; color: #64748b; font-weight: 600; width: 120px;">Nom :</td>
+                        <td style="padding: 8px 0; color: #1e293b;">{{prospect_name}}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 0; color: #64748b; font-weight: 600;">Email :</td>
+                        <td style="padding: 8px 0; color: #1e293b;">{{prospect_email}}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 0; color: #64748b; font-weight: 600;">Entreprise :</td>
+                        <td style="padding: 8px 0; color: #1e293b;">{{prospect_company}}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 0; color: #64748b; font-weight: 600;">Rôle :</td>
+                        <td style="padding: 8px 0; color: #1e293b;">{{prospect_role}}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 0; color: #64748b; font-weight: 600;">Secteur :</td>
+                        <td style="padding: 8px 0; color: #1e293b;">{{prospect_sector}}</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- Toutes les Réponses Brutes -->
+            <div style="background-color: #f8fafc; border-radius: 8px; padding: 20px; margin-bottom: 25px;">
+                <h3 style="color: #475569; margin: 0 0 15px 0; font-size: 16px;">📝 Toutes les Réponses du Prospect</h3>
+                <div style="background-color: white; padding: 15px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.4; color: #1e293b; white-space: pre-wrap;">{{raw_responses}}</div>
+            </div>
+            
+            <!-- Analyse IA Résumée -->
+            <div style="background-color: #fef3f2; border-radius: 8px; padding: 20px; margin-bottom: 25px; border-left: 4px solid #ef4444;">
+                <h3 style="color: #dc2626; margin: 0 0 10px 0; font-size: 16px;">🤖 Analyse IA - Résumé</h3>
+                <p style="margin: 0 0 10px 0; font-size: 16px; font-weight: 600; color: #1e293b;">Niveau: {{maturity_level}}</p>
+                <div style="margin-top: 10px;">
+                    <span style="background-color: #dcfce7; color: #166534; padding: 4px 8px; border-radius: 4px; font-size: 12px; margin-right: 8px;">Personnel: {{score_personnel}}/100</span>
+                    <span style="background-color: #fef3c7; color: #a16207; padding: 4px 8px; border-radius: 4px; font-size: 12px; margin-right: 8px;">Org: {{score_organisationnel}}/100</span>
+                    <span style="background-color: #dbeafe; color: #1d4ed8; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Stratégique: {{score_strategique}}/100</span>
+                </div>
+            </div>
+            
+            <!-- CTA -->
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="mailto:{{prospect_email}}?subject=Suite de votre diagnostic IA Dialog" 
+                   style="background: linear-gradient(135deg, #0D9488, #14B8A6); color: white; text-decoration: none; padding: 15px 30px; border-radius: 8px; font-weight: 600; display: inline-block; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    📧 Contacter le Prospect
+                </a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="background-color: #f8fafc; padding: 20px; text-align: center; border-top: 1px solid #e2e8f0;">
+            <p style="margin: 0; color: #64748b; font-size: 14px;">
+                Diagnostic généré le {{timestamp}}<br>
+                <strong>Dialog - Cabinet de Conseil en IA</strong>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
