@@ -1,0 +1,14 @@
+# Configuration OVH pour déploiement automatique
+# Ce fichier indique à OVH comment déployer votre application
+
+# Commande à exécuter lors du déploiement
+DEPLOY_COMMAND="./deploy-ovh.sh"
+
+# Répertoire de travail
+WORK_DIR="/homez.XXX/votre-compte/www"
+
+# Variables d'environnement nécessaires
+NODE_ENV=production
+
+# Script de post-déploiement
+POST_DEPLOY_HOOK="echo 'Site déployé avec succès'"

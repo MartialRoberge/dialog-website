@@ -1,15 +1,11 @@
 {
-  "name": "dialog-website",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "dialog-website-ovh",
+  "version": "1.0.0",
+  "description": "Site Dialog - Configuration OVH",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build && cp .htaccess dist/",
-    "build:ovh": "vite build && cp .htaccess dist/ && echo '✅ Build OVH prêt dans dist/'",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "deploy": "npm run build && netlify deploy --prod --dir=dist"
+    "postinstall": "npm run build:ovh",
+    "build:ovh": "vite build && cp .htaccess dist/ && cp -r dist/* /www/",
+    "deploy": "./deploy-ovh.sh"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
