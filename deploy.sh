@@ -10,5 +10,6 @@ npm run build
 # Copier les fichiers vers le dossier www
 echo "📁 Copie des fichiers..."
 cp -r dist/* /www/
+cp .htaccess /www/
 
 echo "✅ Déploiement terminé !" 
