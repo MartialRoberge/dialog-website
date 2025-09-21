@@ -1,3 +1,0 @@
-app.engine=node
-app.engine.version=18
-app.engine.mode=production 
