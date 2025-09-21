@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-inter text-charcoal antialiased;
+    background: linear-gradient(135deg, #F5F7F8 0%, #E8F4F3 100%);
+    font-weight: 600; /* Bold par défaut */
+    letter-spacing: -0.025em; /* Améliore la lisibilité */
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Headers avec du style Google et espacement amélioré */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 800;
+    letter-spacing: -0.02em; /* Moins agressif */
+    line-height: 1.2; /* Évite les coupures de lettres */
+    padding: 0.1em 0; /* Espace pour les descendants */
+  }
+  
+  /* Titre principal avec plus d'espace */
+  h1 {
+    line-height: 1.15;
+    padding: 0.15em 0;
+  }
+  
+  /* Textes principaux avec plus de poids */
+  p {
+    font-weight: 500;
+    line-height: 1.6; /* Meilleure lisibilité */
+  }
+}
+
+@layer components {
+  .grain-texture {
+    position: relative;
+  }
+  
+  .grain-texture::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  
+  .honeycomb-pattern {
+    background-image: 
+      radial-gradient(circle at 50% 50%, rgba(26, 167, 161, 0.1) 0%, transparent 50%);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, #2F5233, #0D9488, #10B981);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .glass-effect {
+    backdrop-filter: blur(20px);
+    background: rgba(245, 247, 248, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .ribbon-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 101, 110, 0.15);
+  }
+} 
+
+/* Styles pour les sliders personnalisés */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-track {
+  background: transparent;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #0D9488;
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #0D9488;
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border: none;
+}
+
+.slider::-moz-range-track {
+  background: transparent;
+}
+
+.slider:focus {
+  outline: none;
+}
+
+.slider:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.3);
+}
+
+.slider:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.3);
+}
+
+/* Amélioration pour les transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Protection contre les débordements */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Amélioration de l'accessibilité */
+button:focus-visible, 
+input:focus-visible, 
+select:focus-visible, 
+textarea:focus-visible {
+  outline: 2px solid #0D9488;
+  outline-offset: 2px;
+}
+
+/* Styles pour les éléments draggables */
+[draggable="true"] {
+  cursor: grab;
+}
+
+[draggable="true"]:active {
+  cursor: grabbing;
+} 
